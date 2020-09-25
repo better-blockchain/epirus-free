@@ -6,6 +6,7 @@ services:
   # app: api
   api:
     image: web3labs/epirus-free-api:latest
+    restart: always
     environment:
       - NODE_ENDPOINT=${NODE_ENDPOINT}
       - MONGO_CLIENT_URI=mongodb://mongodb:27017
@@ -28,6 +29,7 @@ services:
   # app: web
   web:
     image: web3labs/epirus-free-web:latest
+    restart: always
     environment:
       - API_URL=/api
     depends_on:
@@ -38,6 +40,7 @@ services:
   # app:
   ingestion:
     image: web3labs/epirus-free-ingestion:latest
+    restart: always
     environment:
       - NODE_ENDPOINT=${NODE_ENDPOINT}
       - MONGO_CLIENT_URI=mongodb://mongodb:27017

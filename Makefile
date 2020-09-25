@@ -31,3 +31,17 @@ pull:
 	docker pull web3labs/epirus-free-web:latest
 	docker pull web3labs/epirus-free-api:latest
 	docker pull mongo:latest
+
+
+ps:
+	docker-compose -f ./docker-compose.yml ps
+
+
+log-api:
+	docker-compose -f ./docker-compose.yml logs -t --follow api
+
+log-ing:
+	docker-compose -f ./docker-compose.yml logs -t --follow ingestion
+
+log-web:
+	docker-compose -f ./docker-compose.yml logs -t --follow web
