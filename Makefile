@@ -21,3 +21,7 @@ stop:
 	docker-compose -f ./docker-compose.yml up -d
 	docker-compose -f ./docker-compose.yml ps
 
+
+git-push:
+	git push origin fix:fix
+
