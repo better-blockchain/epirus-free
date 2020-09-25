@@ -25,3 +25,9 @@ stop:
 git-push:
 	git push origin fix:fix
 
+pull:
+	docker pull nginx:latest
+	docker pull web3labs/epirus-free-ingestion:latest
+	docker pull web3labs/epirus-free-web:latest
+	docker pull web3labs/epirus-free-api:latest
+	docker pull mongo:latest
