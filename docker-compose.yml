@@ -1,5 +1,9 @@
 version: "3.6"
+
+
+#
 services:
+  # app: api
   api:
     image: web3labs/epirus-free-api:latest
     environment:
@@ -12,6 +16,7 @@ services:
     networks:
       - epirus
 
+  # db:
   mongodb:
     image: mongo:latest
     ports:
@@ -20,6 +25,7 @@ services:
     networks:
       - epirus
 
+  # app: web
   web:
     image: web3labs/epirus-free-web:latest
     environment:
@@ -28,7 +34,8 @@ services:
       - api
     networks:
       - epirus
-  
+
+  # app:
   ingestion:
     image: web3labs/epirus-free-ingestion:latest
     environment:
@@ -39,20 +46,25 @@ services:
       - mongodb
     networks:
       - epirus
-      
+
+
+  # web ui 访问端口: localhost:16000
   nginx:
     image: nginx:latest
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./5xx.html:/www/error_pages/5xx.html
     ports:
-      - 80:80
+      - 16000:80
     depends_on:
       - api
       - web
     networks:
       - epirus
 
+
+
+# net:
 networks:
   epirus:
     name: epirus-net
