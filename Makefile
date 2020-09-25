@@ -13,6 +13,13 @@ run-linux:
 	docker-compose -f ./docker-compose.yml ps
 
 
+restart-mac:
+	NODE_ENDPOINT=http://host.docker.internal:8545 docker-compose -f ./docker-compose.yml restart
+	docker-compose -f ./docker-compose.yml ps
+	# web ui:
+	open http://localhost:16000
+
+
 ls-net:
 	docker network ls
 
